@@ -14,10 +14,12 @@ public class MarcaTeste {
 		Marca m5 = new Marca(null, "Radeon");
 		Marca m6 = new Marca(null, "Realtech");
 		Marca m7 = new Marca(null, "Proview");
-		Marca m8 = new Marca(null, "Hewlett packarge");
+		Marca m8 = new Marca(8, "Hewlett packarge");
 		Marca m9 = new Marca(null, "Glock");
 		
 		MarcaDAO dao = new MarcaDAO();
+	
+		//dao.update(m8);
 	    dao.remove(9);
 		
 		for(Marca m : dao.findAll()){
