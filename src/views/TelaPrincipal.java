@@ -1,18 +1,17 @@
 package views;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.TextField;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -23,9 +22,13 @@ public class TelaPrincipal extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel panelTop;
 	private JPanel panelEsq;
+	private JPanel panelCentral;
+	private JPanel panelWhite;
 	private JPanel panelData, panelPesquisa;
 	private JButton btpesquisar;
 	private JTextField txpesquisar;
+	private JTabbedPane abas;
+	private TelaCliente telaCliente;
 
 	private void resolucao() {
 		Toolkit t = Toolkit.getDefaultToolkit();
@@ -79,6 +82,23 @@ public class TelaPrincipal extends JFrame {
 		panelEsq.setPreferredSize(new Dimension(250, 100));
 		panelEsq.setBackground(Paleta.cor_2);
 		telaPri.add(panelEsq, BorderLayout.WEST);
+		
+		panelCentral = new JPanel();
+		panelCentral.setBackground(Paleta.cor_3);
+		
+		telaCliente = new TelaCliente();			
+		panelCentral.add(telaCliente);
+		
+		panelWhite = new JPanel();
+		panelWhite.setBackground(Paleta.cor_5);
+		
+		abas = new JTabbedPane();		
+	    telaPri.add(abas, BorderLayout.CENTER);
+	    
+	    abas.add("Painel Central",panelCentral);
+	    abas.add("Painel White",panelWhite);
+	    
+	   
 
 		setResizable(true);
 		resolucao();
