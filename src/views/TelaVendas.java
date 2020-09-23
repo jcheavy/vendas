@@ -1,0 +1,74 @@
+package views;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import util.Utils;
+
+public class TelaVendas extends JPanel {
+
+	private JLabel lbId, lbNome, lbCpfCnpj, lbEmail, lbTipo, lbEndereco;
+	private JTextField txNome, txCpfCnpj, txEmail, txEndereco;
+	private JComboBox cbTipo;
+	private JPanel painelCentro, paineltop;
+	// Integer id, String nome, String cpfCnpj, String email, TipoCliente tipo,
+	// Endereco endereco
+	static int NOVA_LINHA = 0;
+	static int NOVA_COLUNA = 1;
+	GridBagConstraints gbc = null;	
+
+	public TelaVendas() {
+
+		setLayout(new BorderLayout());
+
+		painelCentro = new JPanel();
+		painelCentro.setPreferredSize(new Dimension(900, 400));
+		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Usuário"));
+		add(painelCentro, BorderLayout.WEST);     	
+				    
+				 
+	}
+
+	private JButton botao(String desc, int posi, int qtdCol) {
+		configurar(posi, qtdCol);
+		JButton but = new JButton(desc);
+		but.setFont(Utils.gramond_15);
+		return but;
+	}
+
+	private JLabel label(String desc, int posi, int qtdCol) {
+		configurar(posi, qtdCol);
+		JLabel labl = new JLabel(desc);
+		//labl.setFont(Utils.gramond_14);
+		return labl;
+	}
+
+	private JTextField txfield(int col, int tam, int posi, int qtdCol) {
+
+		configurar(posi, qtdCol);
+		JTextField txtfield = new JTextField(col);
+		txtfield.setPreferredSize(new Dimension(100, tam));
+		return txtfield;
+
+	}
+
+	private void configurar(int posicao, int qtdColunas) {
+
+		if (posicao == NOVA_LINHA) {
+			gbc.gridy = gbc.gridy + 1;
+			gbc.gridx = 0;
+		} else {
+			gbc.gridx = gbc.gridx + 1;
+		}
+		gbc.gridwidth = qtdColunas;
+	}
+
+}

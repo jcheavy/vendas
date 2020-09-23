@@ -29,6 +29,7 @@ public class TelaPrincipal extends JFrame {
 	private JTextField txpesquisar;
 	private JTabbedPane abas;
 	private TelaCliente telaCliente;
+	private TelaUsuario telaUsuario;
 
 	private void resolucao() {
 		Toolkit t = Toolkit.getDefaultToolkit();
@@ -91,6 +92,9 @@ public class TelaPrincipal extends JFrame {
 		
 		panelWhite = new JPanel();
 		panelWhite.setBackground(Paleta.cor_5);
+		
+		telaUsuario = new TelaUsuario();
+		panelWhite.add(telaUsuario);
 		
 		abas = new JTabbedPane();		
 	    telaPri.add(abas, BorderLayout.CENTER);

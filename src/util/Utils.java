@@ -15,6 +15,8 @@ public class Utils {
 	public static Font gramond_30 = new Font("Garamond", style, 30);
 	public static Font gramond_20 = new Font("Garamond", style, 20);
 	public static Font gramond_15 = new Font("Garamond", style, 15);
+	public static Font gramond_14 = new Font("Garamond", Font.BOLD, 14);
+	public static Font gramond_13 = new Font("Garamond", Font.BOLD, 15);
 	
 	/**
 	 * Paleta de Cores 
