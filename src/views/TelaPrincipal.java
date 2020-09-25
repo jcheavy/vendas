@@ -23,14 +23,19 @@ public class TelaPrincipal extends JFrame {
 	private JPanel panelTop;
 	private JPanel panelEsq;
 	private JPanel panelCentral;
+	private JPanel panelVendas;
 	private JPanel panelWhite;
 	private JPanel panelData, panelPesquisa;
+	
 	private JButton btpesquisar;
 	private JTextField txpesquisar;
 	private JTabbedPane abas;
+	
 	private TelaCliente telaCliente;
 	private TelaUsuario telaUsuario;
-
+	private TelaVendas telaVendas;
+    private TelaEndereco telaEndereco;
+	
 	private void resolucao() {
 		Toolkit t = Toolkit.getDefaultToolkit();
 		Dimension dimension = t.getScreenSize();
@@ -84,11 +89,14 @@ public class TelaPrincipal extends JFrame {
 		panelEsq.setBackground(Paleta.cor_2);
 		telaPri.add(panelEsq, BorderLayout.WEST);
 		
-		panelCentral = new JPanel();
+		panelCentral = new JPanel(new BorderLayout());
 		panelCentral.setBackground(Paleta.cor_3);
 		
 		telaCliente = new TelaCliente();			
-		panelCentral.add(telaCliente);
+		panelCentral.add(telaCliente, BorderLayout.NORTH);
+		
+		//telaEndereco = new TelaEndereco();
+		//panelCentral.add(telaEndereco, BorderLayout.CENTER);
 		
 		panelWhite = new JPanel();
 		panelWhite.setBackground(Paleta.cor_5);
@@ -96,11 +104,18 @@ public class TelaPrincipal extends JFrame {
 		telaUsuario = new TelaUsuario();
 		panelWhite.add(telaUsuario);
 		
+		panelVendas = new JPanel();
+		panelVendas.setBackground(Paleta.cor_4);
+		
+		telaVendas = new TelaVendas();
+		panelVendas.add(telaVendas);
+		
 		abas = new JTabbedPane();		
 	    telaPri.add(abas, BorderLayout.CENTER);
 	    
 	    abas.add("Painel Central",panelCentral);
-	    abas.add("Painel White",panelWhite);
+	    abas.add("Painel Usuário",panelWhite);
+	    abas.add("Painel Vendas", panelVendas);
 	    
 	   
 
