@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
 import util.Comp;
+import util.DocumentLetras;
 import util.Paleta;
 import util.Utils;
 
@@ -31,6 +32,8 @@ public class TelaCliente extends JPanel {
 	private JComboBox<?> cbTipo;
 	private JPanel painelCentro;
 	private TelaEndereco telaEndereco;
+	private TelaTabela telaTabela;
+	
 	// Integer id, String nome, String cpfCnpj, String email, TipoCliente tipo,
 	// Endereco endereco
 
@@ -52,6 +55,7 @@ public class TelaCliente extends JPanel {
 		painelCentro.add(lbNome);
      
 		txNome = Comp.txfield(65);
+		txNome.setDocument(new DocumentLetras());
 		painelCentro.add(txNome);
 		
 		lbTipo =  Comp.label("Tipo :");
@@ -76,6 +80,9 @@ public class TelaCliente extends JPanel {
 		
 		telaEndereco = new TelaEndereco();
 		add(telaEndereco, BorderLayout.CENTER);
+		
+		telaTabela = new TelaTabela();
+		add(telaTabela, BorderLayout.SOUTH);
 				
 	}
 

@@ -7,10 +7,14 @@ import javax.swing.BorderFactory;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.PlainDocument;
 
 import net.miginfocom.swing.MigLayout;
 import util.Comp;
+import util.DocumentLetras;
 import util.Paleta;
 import util.Utils;
 
@@ -20,19 +24,20 @@ public class TelaUsuario extends JPanel {
 	
 	private JLabel lbNome;
 	private JLabel lbCpf; 
-	private JLabel lbEmail;
+	private JLabel lbSenha;
 	private JLabel lbTipo; 
 	
 	
 	private JTextField txNome;
 	private JTextField txCpf;	
-	private JTextField txEmail;
+	private JTextField txSenha;
+	private JPasswordField txPassword;
 
 	private JComboBox<?> cbTipo;
 	private JPanel painelCentro;
 	private TelaEndereco telaEndereco;
-	// Integer id, String nome, String cpfCnpj, String email, TipoCliente tipo,
-	// Endereco endereco
+	private TelaTabela telaTabela;
+
 
 	public TelaUsuario() {
         
@@ -44,7 +49,7 @@ public class TelaUsuario extends JPanel {
         
 		painelCentro = new JPanel(new MigLayout("insets 5"));
 		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Cliente"));
-		painelCentro.setPreferredSize(new Dimension(1100, 100));
+		painelCentro.setPreferredSize(new Dimension(1000, 100));
 		
 		add(painelCentro, BorderLayout.NORTH);
        
@@ -52,6 +57,7 @@ public class TelaUsuario extends JPanel {
 		painelCentro.add(lbNome);
      
 		txNome = Comp.txfield(65);
+		txNome.setDocument(new DocumentLetras());
 		painelCentro.add(txNome);
 		
 		lbTipo =  Comp.label("Tipo :");
@@ -62,11 +68,11 @@ public class TelaUsuario extends JPanel {
 		cbTipo.setPreferredSize(new Dimension(40,20));
 		painelCentro.add(cbTipo, "wrap");
 		
-		lbEmail =  Comp.label("Email :");
-		painelCentro.add(lbEmail);
+		lbSenha =  Comp.label("Senha :");
+		painelCentro.add(lbSenha);
 
-		txEmail = Comp.txfield(65);
-		painelCentro.add(txEmail);	
+		txPassword = new JPasswordField(40);
+		painelCentro.add(txPassword);	
 
 		lbCpf =  Comp.label("Cpf :");
 		painelCentro.add(lbCpf);
@@ -76,7 +82,12 @@ public class TelaUsuario extends JPanel {
 		
 		telaEndereco = new TelaEndereco();
 		add(telaEndereco, BorderLayout.CENTER);
+		
+		telaTabela = new TelaTabela();
+		add(telaTabela, BorderLayout.SOUTH);
 				
 	}
+	
+
 
 }

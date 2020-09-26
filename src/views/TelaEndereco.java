@@ -51,7 +51,7 @@ public class TelaEndereco extends JPanel {
 		lbCep = Comp.label("CEP.:");
 		painelCentro.add(lbCep);
 		
-		txCep = Comp.mascaras("######-###");
+		txCep = Comp.mascaras("#####-###");
 		painelCentro.add(txCep, "wrap");
 		
 		lbCidade = Comp.label("Cidade :");

@@ -29,7 +29,7 @@ public class TelaVendas extends JPanel {
 	public TelaVendas() {
 
 		painelCentro = new JPanel(new MigLayout());
-		painelCentro.setPreferredSize(new Dimension(900, 400));
+		painelCentro.setPreferredSize(new Dimension(1100, 400));
 		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Venda"));
 		
 		add(painelCentro);     	

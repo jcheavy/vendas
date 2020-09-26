@@ -18,7 +18,8 @@ import util.Utils;
 
 public class TelaLogin extends JFrame {
 
-	   private JLabel labelUsername = new JLabel("Nome : ");
+	private static final long serialVersionUID = 1L;
+	private JLabel labelUsername = new JLabel("Nome : ");
 	   private JLabel labelPassword = new JLabel("Senha : ");
 	   private JTextField textUsername = new JTextField(20);
 	   private JPasswordField fieldPassword = new JPasswordField(20);
@@ -81,5 +82,7 @@ public class TelaLogin extends JFrame {
 	           }
 	       });
 	   }
+	   
+	   
 
 }
