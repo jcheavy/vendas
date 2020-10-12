@@ -1,19 +1,16 @@
 package util;
 
 import java.awt.Dimension;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
-import javax.swing.text.BadLocationException;
 import javax.swing.text.MaskFormatter;
-import javax.swing.text.PlainDocument;
 
 public class Comp {
 
@@ -42,6 +39,16 @@ public class Comp {
 	public static JTextField txfield(int tam) {
 		JTextField txtfield = new JTextField(tam);	
 		txtfield.setFont(Utils.gramond_13);
+		
+		txtfield.addKeyListener(new KeyAdapter() {
+		      public void keyReleased(KeyEvent e) {
+			       JTextField textField = (JTextField) e.getSource();
+			       String text = textField.getText();
+			       textField.setText(text.toUpperCase());
+			  }
+		  }
+		  );
+		
 		return txtfield;
 	}
 
@@ -103,7 +110,7 @@ public class Comp {
   
 	public void validaVazio (JTextField txf) {	
 		if(txf.getText().isEmpty()) {
-			JOptionPane.showMessageDialog(null, "O campo n„o pode ser vazio");
+			JOptionPane.showMessageDialog(null, "O campo n√£o pode ser vazio");
 		}
 	}
 }

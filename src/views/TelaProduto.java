@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,26 +14,26 @@ import util.DocumentLetras;
 import util.Paleta;
 import util.Utils;
 
-public class TelaCliente extends JPanel {
+public class TelaProduto extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
 	private JLabel lbNome;
-	private JLabel lbCpf; 
-	private JLabel lbEmail;
-	private JLabel lbTipo; 
+	private JLabel lbPreco; 
+	private JLabel lbCodigo;
+	private JLabel lbMarca; 
+	private JLabel lbQuantidade;
 	
 	
 	private JTextField txNome;
-	private JTextField txCpf;	
-	private JTextField txEmail;
+	private JTextField txPreco;	
+	private JTextField txCodigo;
+	private JTextField txQuantidade;
 
-	private JComboBox<?> cbTipo;
+	private JComboBox<?> cbMarca;
 	private JPanel painelCentro;
 	private TelaEndereco telaEndereco;
 	private TelaTabela telaTabela;
-	
-	private JButton btSalvar;
 	
 	// Integer id, String nome, String cpfCnpj, String email, TipoCliente tipo,
 	// Endereco endereco
@@ -43,7 +42,7 @@ public class TelaCliente extends JPanel {
 	int w = 60;
 	int h = 20;			   
 	
-	public TelaCliente() {
+	public TelaProduto() {
         
 		setBackground(Paleta.cor_4);
 		setLayout(new BorderLayout());
@@ -60,46 +59,47 @@ public class TelaCliente extends JPanel {
        
 		lbNome = Comp.label("Nome :");
         lbNome.setBounds(col1,h,w,h);
-		painelCentro.add(lbNome);  
+		painelCentro.add(lbNome);     
+		txNome = Comp.txfield(65);
 		
-		txNome = Comp.txfield(65);		
 		txNome.setDocument(new DocumentLetras());
 		txNome.setBounds(70,h,700,h);
 		painelCentro.add(txNome);
 		
-		lbTipo =  Comp.label("Tipo :");
-        lbTipo.setBounds(780,h,100,h);
-		painelCentro.add(lbTipo);
+		lbMarca =  Comp.label("Marca :");
+        lbMarca.setBounds(780,h,100,h);
+		painelCentro.add(lbMarca);
 
-		cbTipo = new JComboBox(tipo);
-		cbTipo.setFont(Utils.gramond_13);
-		cbTipo.setBounds(830,h,150,h);
-		painelCentro.add(cbTipo, "wrap");
-				
-		btSalvar = Comp.botao("Salvar");
-		btSalvar.setBounds(998,h,94,50);
-		btSalvar.setContentAreaFilled(false);
-		btSalvar.setOpaque(true);
-		btSalvar.setBackground(Paleta.cor_4);
-		btSalvar.setFocusable(false);
-		painelCentro.add(btSalvar);
+		cbMarca = new JComboBox(tipo);
+		cbMarca.setFont(Utils.gramond_13);
+		cbMarca.setBounds(830,h,150,h);
+		painelCentro.add(cbMarca, "wrap");
 		
-		lbEmail =  Comp.label("Email :");
-		lbEmail.setBounds(col1,50,w,h);
-		painelCentro.add(lbEmail);
+		lbCodigo =  Comp.label("Código:");
+		lbCodigo.setBounds(col1,50,w,h);
+		painelCentro.add(lbCodigo);
 
-		txEmail = new JTextField(65);
-		txEmail.setFont(Utils.gramond_13);
-		txEmail.setBounds(70,50,700,h);
-		painelCentro.add(txEmail);	
+		txCodigo = new JTextField(65);
+		txCodigo.setFont(Utils.gramond_13);
+		txCodigo.setBounds(70,50,450,h);
+		painelCentro.add(txCodigo);	
 
-		lbCpf =  Comp.label("Cpf :");
-		lbCpf.setBounds(780,50,w,h);
-		painelCentro.add(lbCpf);
+		lbPreco =  Comp.label("Preço :");
+		lbPreco.setBounds(535,50,w,h);
+		painelCentro.add(lbPreco);
 
-		txCpf = Comp.mascaras("###.###.###-##");
-		txCpf.setBounds(830,50,150,h);
-		painelCentro.add(txCpf);
+		txPreco = Comp.mascaras("###.###.###-##");
+		txPreco.setBounds(585,50,150,h);
+		painelCentro.add(txPreco);
+		
+		
+		lbQuantidade = Comp.label("Quantidade:");
+		lbQuantidade.setBounds(748,50,80,20);
+		painelCentro.add(lbQuantidade);
+		
+		txQuantidade = Comp.txfield();
+		txQuantidade.setBounds(830,50,150,20);
+		painelCentro.add(txQuantidade);
 		
 		telaEndereco = new TelaEndereco();
 		add(telaEndereco, BorderLayout.CENTER);
@@ -107,7 +107,6 @@ public class TelaCliente extends JPanel {
 		telaTabela = new TelaTabela();
 		add(telaTabela, BorderLayout.SOUTH);
 				
-	} 
+	}
 
-	 
 }

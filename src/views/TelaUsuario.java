@@ -9,10 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.PlainDocument;
 
-import net.miginfocom.swing.MigLayout;
 import util.Comp;
 import util.DocumentLetras;
 import util.Paleta;
@@ -29,8 +26,7 @@ public class TelaUsuario extends JPanel {
 	
 	
 	private JTextField txNome;
-	private JTextField txCpf;	
-	private JTextField txSenha;
+	private JTextField txCpf;		
 	private JPasswordField txPassword;
 
 	private JComboBox<?> cbTipo;
@@ -44,41 +40,50 @@ public class TelaUsuario extends JPanel {
 		setBackground(Paleta.cor_4);
 		setLayout(new BorderLayout());
 		
-		String[] tipo = {"USU¡RIO", "ADMIN"};		
+		String[] tipo = {"USU√ÅRIO", "ADMIN"};		
 		
         
-		painelCentro = new JPanel(new MigLayout("insets 5"));
+		painelCentro = new JPanel();
+		painelCentro.setLayout(null);
 		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Cliente"));
-		painelCentro.setPreferredSize(new Dimension(1000, 100));
+		painelCentro.setPreferredSize(new Dimension(1000, 90));
 		
 		add(painelCentro, BorderLayout.NORTH);
        
 		lbNome = Comp.label("Nome :");
+		lbNome.setBounds(10,20,60,20);
 		painelCentro.add(lbNome);
      
 		txNome = Comp.txfield(65);
+		txNome.setBounds(70,20,700,20);
 		txNome.setDocument(new DocumentLetras());
 		painelCentro.add(txNome);
 		
 		lbTipo =  Comp.label("Tipo :");
+		lbTipo.setBounds(780,20,60,20);
 		painelCentro.add(lbTipo);
 
 		cbTipo = new JComboBox(tipo);
+		cbTipo.setBounds(830,20,150,20);
 		cbTipo.setFont(Utils.gramond_13);
 		cbTipo.setPreferredSize(new Dimension(40,20));
-		painelCentro.add(cbTipo, "wrap");
+		painelCentro.add(cbTipo);
 		
 		lbSenha =  Comp.label("Senha :");
+		lbSenha.setBounds(10,50,60,20);
 		painelCentro.add(lbSenha);
 
 		txPassword = new JPasswordField(40);
+		txPassword.setBounds(70,50,700,20);
 		painelCentro.add(txPassword);	
 
 		lbCpf =  Comp.label("Cpf :");
+		lbCpf.setBounds(780,50,60,20);
 		painelCentro.add(lbCpf);
 
 		txCpf = Comp.mascaras("###.###.###-##");
-		painelCentro.add(txCpf, "wrap");
+		txCpf.setBounds(830,50,150,20);
+		painelCentro.add(txCpf);
 		
 		telaEndereco = new TelaEndereco();
 		add(telaEndereco, BorderLayout.CENTER);

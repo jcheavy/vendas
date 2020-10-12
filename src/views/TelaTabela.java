@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
 
 import dao.UsuarioDAO;
 import entities.Usuario;
-import net.miginfocom.swing.MigLayout;
 
 public class TelaTabela extends JPanel {
 
-	private JPanel painelCentro;
-	private JPanel paineltop;
+	private static final long serialVersionUID = 1L;
+	
+	private JPanel painelCentro;	
 	private JTable tabela;
 	private JScrollPane scroll;
 	GridBagConstraints gbc = null;

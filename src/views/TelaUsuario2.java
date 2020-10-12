@@ -36,7 +36,7 @@ public class TelaUsuario2 extends JPanel {
 
 		painelCentro = new JPanel(new BorderLayout());
 		painelCentro.setPreferredSize(new Dimension(1100, 400));
-		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Usuário"));
+		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Usuï¿½rio"));
 		add(painelCentro, BorderLayout.WEST);
         
 		paineltop = new JPanel(new GridBagLayout());

@@ -1,21 +1,27 @@
 package views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.Toolkit;
+import java.text.DateFormat;
+import java.util.Date;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import util.Paleta;
+import util.Utils;
 
 public class TelaPrincipal extends JFrame {
 
@@ -24,7 +30,9 @@ public class TelaPrincipal extends JFrame {
 	private JPanel panelEsq;
 	private JPanel panelCentral;
 	private JPanel panelVendas;
+	private JPanel panelProduto;
 	private JPanel panelWhite;
+	private JPanel panelDefUser;
 	private JPanel panelData, panelPesquisa;
 	
 	private JButton btpesquisar;
@@ -34,7 +42,12 @@ public class TelaPrincipal extends JFrame {
 	private TelaCliente telaCliente;
 	private TelaUsuario telaUsuario;
 	private TelaVendas telaVendas;
-    private TelaEndereco telaEndereco;
+    private TelaProduto telaProduto;
+    
+    Date data = new Date();
+	DateFormat dataFormatada = DateFormat.getDateInstance(DateFormat.SHORT);
+	
+	private JLabel lbData;
 	
 	private void resolucao() {
 		Toolkit t = Toolkit.getDefaultToolkit();
@@ -89,14 +102,26 @@ public class TelaPrincipal extends JFrame {
 		panelEsq.setBackground(Paleta.cor_2);
 		telaPri.add(panelEsq, BorderLayout.WEST);
 		
+		panelDefUser = new JPanel(new BorderLayout());
+		panelDefUser.setBackground(Paleta.cor_2);
+		panelDefUser.setPreferredSize(new Dimension(240, 100));
+		panelDefUser.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder()));
+		
+		lbData = new JLabel("Data :    "+dataFormatada.format(data));
+		lbData.setFont(Utils.gramond_20);
+		lbData.setForeground(Color.white);
+	   
+		panelDefUser.add(lbData, BorderLayout.BEFORE_FIRST_LINE);
+		panelEsq.add(panelDefUser);
+		
+		
+		
+		
 		panelCentral = new JPanel(new BorderLayout());
 		panelCentral.setBackground(Paleta.cor_3);
 		
 		telaCliente = new TelaCliente();			
 		panelCentral.add(telaCliente, BorderLayout.NORTH);
-		
-		//telaEndereco = new TelaEndereco();
-		//panelCentral.add(telaEndereco, BorderLayout.CENTER);
 		
 		panelWhite = new JPanel();
 		panelWhite.setBackground(Paleta.cor_5);
@@ -110,11 +135,17 @@ public class TelaPrincipal extends JFrame {
 		telaVendas = new TelaVendas();
 		panelVendas.add(telaVendas);
 		
+		panelProduto = new JPanel();
+				
+		telaProduto = new TelaProduto();
+		panelProduto.add(telaProduto);
+		
 		abas = new JTabbedPane();		
 	    telaPri.add(abas, BorderLayout.CENTER);
 	    
-	    abas.add("Painel Central",panelCentral);
-	    abas.add("Painel Usu·rio",panelWhite);
+	    abas.add("Painel Cliente",panelCentral);
+	    abas.add("Painel Usu√°rio",panelWhite);
+	    abas.add("Painel Produto", panelProduto);
 	    abas.add("Painel Vendas", panelVendas);
 	    
 	   

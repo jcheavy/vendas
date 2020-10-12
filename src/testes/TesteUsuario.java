@@ -4,6 +4,7 @@ import dao.EnderecoDAO;
 import dao.UsuarioDAO;
 import entities.Endereco;
 import entities.Usuario;
+import entities.enums.PerfilEnum;
 
 public class TesteUsuario {
 

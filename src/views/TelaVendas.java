@@ -1,6 +1,7 @@
 package views;
 
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 
 import javax.swing.BorderFactory;
@@ -10,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import net.miginfocom.swing.MigLayout;
-import util.Paleta;
 import util.Utils;
 
 public class TelaVendas extends JPanel {
@@ -28,7 +27,7 @@ public class TelaVendas extends JPanel {
 
 	public TelaVendas() {
 
-		painelCentro = new JPanel(new MigLayout());
+		painelCentro = new JPanel();
 		painelCentro.setPreferredSize(new Dimension(1100, 400));
 		painelCentro.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Venda"));
 		
@@ -38,7 +37,7 @@ public class TelaVendas extends JPanel {
 	    painelCentro.add(lbNome);
 	    
 	    txNome = new JTextField(20);
-		painelCentro.add(txNome, "wrap");
+		painelCentro.add(txNome);
 		
 		lbCpfCnpj = label("Cpf/Cnpj");
 		painelCentro.add(lbCpfCnpj);

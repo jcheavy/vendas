@@ -3,10 +3,6 @@ package util;
 import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Document;
-import javax.swing.text.PlainDocument;
-
 public class Utils {
 
 	/**
@@ -33,7 +29,7 @@ public class Utils {
 	public static Color azul_esc = new Color(32, 64, 81);
 
 	/**
-	 * Remove os caracteres inválidos para serem inseridos no banco de dados,
+	 * Remove os caracteres invï¿½lidos para serem inseridos no banco de dados,
 	 * alterando-os com seu respectivo caracter de escape
 	 * 
 	 * @param texto String
@@ -48,9 +44,9 @@ public class Utils {
 				// substitui a aspas qdo se copia textos com CTRL+C no windows
 				// as aspas tem codigo 146 no linux e 8217 no windows qdo copiados no Adobe
 				// Acrobat
-				// troca acentos grave e agudo quando estão sem nenhuma letra
+				// troca acentos grave e agudo quando estï¿½o sem nenhuma letra
 				if (texto.charAt(i) == '\'' || (int) texto.charAt(i) == 146 || (int) texto.charAt(i) == 8217
-						|| texto.charAt(i) == '`' || texto.charAt(i) == '´')
+						|| texto.charAt(i) == '`' || texto.charAt(i) == 'ï¿½')
 					bui.append("''");
 				else if ((int) texto.charAt(i) == 8220 || (int) texto.charAt(i) == 8221 || texto.charAt(i) == 0xe2809d
 						|| texto.charAt(i) == 0xe2809c)
@@ -60,15 +56,15 @@ public class Utils {
 				else if (texto.charAt(i) == '\\')
 					bui.append("\\").append(texto.charAt(i));
 				else if (texto.charAt(i) == '\u00e2')
-					bui.append("â");
+					bui.append("ï¿½");
 				else if (texto.charAt(i) == '\u0161')
 					bui.append("s");
 				else if (texto.charAt(i) == '\u00ef')
 					bui.append("i");
 				else if (texto.charAt(i) == '\u00e1')
-					bui.append("á");
+					bui.append("ï¿½");
 				else if (texto.charAt(i) == '\uFF7D')
-					bui.append("Ç");
+					bui.append("ï¿½");
 				else if (texto.charAt(i) == 0xe280a2 || (int) texto.charAt(i) == 8226)
 					bui.append(".");
 				else if (texto.charAt(i) == '\uFFFD' || texto.charAt(i) == 0xe282ac || texto.charAt(i) == 0xc595
